@@ -4,6 +4,8 @@
 
 [Live quality dashboard](https://hugomanuelpaulo.github.io/qualitypulse/) · [Tested demo store](https://hugomanuelpaulo.github.io/qualitypulse/demo/)
 
+Every push to `main` runs 12 automated UI and API checks before publishing the latest quality evidence.
+
 QualityPulse is a deterministic test automation project that validates a controlled e-commerce application across browser UI and REST API layers, then turns the execution evidence into a recruiter-friendly quality dashboard.
 
 ## What it demonstrates
