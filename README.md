@@ -1,5 +1,9 @@
 # QualityPulse — QA Intelligence Platform
 
+[![QualityPulse CI and Pages](https://github.com/HugoManuelPaulo/qualitypulse/actions/workflows/qualitypulse.yml/badge.svg)](https://github.com/HugoManuelPaulo/qualitypulse/actions/workflows/qualitypulse.yml)
+
+[Live quality dashboard](https://hugomanuelpaulo.github.io/qualitypulse/) · [Tested demo store](https://hugomanuelpaulo.github.io/qualitypulse/demo/)
+
 QualityPulse is a deterministic test automation project that validates a controlled e-commerce application across browser UI and REST API layers, then turns the execution evidence into a recruiter-friendly quality dashboard.
 
 ## What it demonstrates
