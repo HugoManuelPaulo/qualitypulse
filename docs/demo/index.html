@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="QualityMart — the deterministic demo commerce application tested by QualityPulse.">
+  <title>QualityMart — Tested Demo Store</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23071016'/%3E%3Cpath d='M15 34h9l5-15 8 29 5-14h7' fill='none' stroke='%235de4c7' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <a class="brand" href="../"><span>⌁</span> QualityMart</a>
+    <div id="user-state"></div>
+  </header>
+
+  <main>
+    <section id="login-view" class="login-shell">
+      <div class="login-copy">
+        <p class="eyebrow">DETERMINISTIC COMMERCE LAB</p>
+        <h1>A storefront built to be tested.</h1>
+        <p>Use the controlled credentials to explore the same customer journey validated by the QualityPulse pipeline.</p>
+        <dl><div><dt>Username</dt><dd>standard_user</dd></div><div><dt>Password</dt><dd>quality123</dd></div></dl>
+      </div>
+      <form id="login-form" class="card">
+        <h2>Sign in</h2>
+        <label>Username<input name="username" autocomplete="username" required></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <p id="login-error" class="error" role="alert"></p>
+        <button type="submit">Sign in</button>
+      </form>
+    </section>
+
+    <section id="store-view" class="store" hidden>
+      <div class="store-head">
+        <div><p class="eyebrow">CONTROLLED TEST CATALOGUE</p><h1>Product catalogue</h1></div>
+        <button id="cart-button" class="secondary" type="button" aria-label="Open cart">Cart <span data-testid="cart-count">0</span></button>
+      </div>
+      <div class="controls">
+        <label>Search products<input id="search" type="search" placeholder="Search catalogue"></label>
+        <label>Sort products<select id="sort"><option value="default">Featured</option><option value="price-asc">Price: low to high</option><option value="price-desc">Price: high to low</option></select></label>
+      </div>
+      <div id="products" class="products"></div>
+    </section>
+  </main>
+
+  <dialog id="cart-dialog">
+    <div class="dialog-head"><h2>Your cart</h2><button class="icon" data-close="cart" aria-label="Close cart">×</button></div>
+    <div id="cart-items"></div>
+    <div id="cart-total" class="total"></div>
+    <button id="checkout-button" type="button">Continue to checkout</button>
+  </dialog>
+
+  <dialog id="checkout-dialog">
+    <div class="dialog-head"><h2>Demo checkout</h2><button class="icon" data-close="checkout" aria-label="Close checkout">×</button></div>
+    <form id="checkout-form">
+      <label>Email address<input name="email" type="email" autocomplete="email"></label>
+      <p id="checkout-error" class="error" role="alert"></p>
+      <button type="submit">Place demo order</button>
+    </form>
+  </dialog>
+
+  <dialog id="success-dialog">
+    <div class="success-mark">✓</div>
+    <h2>Order confirmed</h2>
+    <p>Reference <strong>QP-DEMO-001</strong> was created successfully.</p>
+    <button data-close="success">Continue testing</button>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>

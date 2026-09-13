@@ -1,0 +1,49 @@
+name: QualityPulse CI and Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  test-and-publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npx playwright install --with-deps chromium
+      - id: tests
+        continue-on-error: true
+        run: npm test
+      - if: always()
+        run: npm run report:build
+      - if: always() && github.event_name != 'pull_request'
+        uses: actions/configure-pages@v5
+      - if: always() && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - if: always() && github.event_name != 'pull_request'
+        name: Deploy dashboard
+        id: deployment
+        uses: actions/deploy-pages@v4
+      - if: steps.tests.outcome == 'failure'
+        run: exit 1

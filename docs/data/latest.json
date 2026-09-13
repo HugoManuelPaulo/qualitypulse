@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-09-13T13:59:59.258Z",
+  "status": "healthy",
+  "summary": {
+    "total": 5,
+    "passed": 5,
+    "failed": 0,
+    "passRate": 100,
+    "duration": 235
+  },
+  "layers": [
+    {
+      "name": "Browser UI",
+      "total": 0,
+      "passed": 0
+    },
+    {
+      "name": "REST API",
+      "total": 5,
+      "passed": 5
+    }
+  ],
+  "tests": [
+    {
+      "title": "health endpoint exposes service status",
+      "suite": "API",
+      "status": "passed",
+      "duration": 55
+    },
+    {
+      "title": "order validation rejects incomplete payloads",
+      "suite": "API",
+      "status": "passed",
+      "duration": 59
+    },
+    {
+      "title": "product catalogue returns a valid collection",
+      "suite": "API",
+      "status": "passed",
+      "duration": 54
+    },
+    {
+      "title": "unknown product returns a controlled 404",
+      "suite": "API",
+      "status": "passed",
+      "duration": 50
+    },
+    {
+      "title": "valid order is confirmed with a traceable id",
+      "suite": "API",
+      "status": "passed",
+      "duration": 17
+    }
+  ]
+}
