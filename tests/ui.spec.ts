@@ -58,7 +58,7 @@ test.describe('QualityMart customer journey', () => {
     await page.getByRole('button', { name: 'Open cart' }).click();
     await page.getByRole('button', { name: 'Continue to checkout' }).click();
     await page.getByRole('button', { name: 'Place demo order' }).click();
-    await expect(page.getByRole('alert')).toHaveText('Enter a valid email address.');
+    await expect(page.locator('#checkout-error')).toHaveText('Enter a valid email address.');
   });
 
   test('completes the checkout journey', async ({ page }) => {
